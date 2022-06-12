@@ -1,3 +1,5 @@
+import '../css/Boton.css';
+
 export default function Boton({texto, esBotonDeClick, clickHandler}) {
     return (
         <button
