@@ -1,7 +1,11 @@
 import '../css/Clear.css'
 
-export default function Clear() {
+export default function Clear({clickHandler}) {
   return (
-    <div className="clear-button">Clear</div>
+    <div
+      className="clear-button"
+      onClick={() => clickHandler()}>
+      Clear
+    </div>
   );
 }

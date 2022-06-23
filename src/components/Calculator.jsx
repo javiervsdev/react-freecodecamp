@@ -2,37 +2,56 @@ import '../css/Calculator.css';
 import Button from "./Button";
 import Screen from "./Screen";
 import Clear from "./Clear";
+import {useState} from "react";
+import {evaluate} from "mathjs";
 
 export default function Calculator () {
+
+  const INITIAL_VALUE = '';
+
+  const [input, setInput] = useState(INITIAL_VALUE);
+
+  const concatInput = value => {
+    setInput(input + value);
+  }
+
+  const clearInput = () => {
+    setInput(INITIAL_VALUE);
+  }
+
+  const calculateInput = () => {
+    setInput(evaluate(input));
+  }
+
   return (
     <div className="calculator-container">
-      <Screen />
+      <Screen input={input}/>
       <div className="row">
-        <Button>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
-        <Button>+</Button>
+        <Button clickHandler={concatInput}>1</Button>
+        <Button clickHandler={concatInput}>2</Button>
+        <Button clickHandler={concatInput}>3</Button>
+        <Button clickHandler={concatInput}>+</Button>
       </div>
       <div className="row">
-        <Button>4</Button>
-        <Button>5</Button>
-        <Button>6</Button>
-        <Button>-</Button>
+        <Button clickHandler={concatInput}>4</Button>
+        <Button clickHandler={concatInput}>5</Button>
+        <Button clickHandler={concatInput}>6</Button>
+        <Button clickHandler={concatInput}>-</Button>
       </div>
       <div className="row">
-        <Button>7</Button>
-        <Button>8</Button>
-        <Button>9</Button>
-        <Button>*</Button>
+        <Button clickHandler={concatInput}>7</Button>
+        <Button clickHandler={concatInput}>8</Button>
+        <Button clickHandler={concatInput}>9</Button>
+        <Button clickHandler={concatInput}>*</Button>
       </div>
       <div className="row">
-        <Button>=</Button>
-        <Button>0</Button>
-        <Button>.</Button>
-        <Button>/</Button>
+        <Button clickHandler={calculateInput}>=</Button>
+        <Button clickHandler={concatInput}>0</Button>
+        <Button clickHandler={concatInput}>.</Button>
+        <Button clickHandler={concatInput}>/</Button>
       </div>
       <div className="row">
-        <Clear />
+        <Clear clickHandler={clearInput}/>
       </div>
     </div>
   );
