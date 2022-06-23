@@ -5,22 +5,33 @@ import Clear from "./Clear";
 import {useState} from "react";
 import {evaluate} from "mathjs";
 
-export default function Calculator () {
+export default function Calculator() {
 
   const INITIAL_VALUE = '';
 
   const [input, setInput] = useState(INITIAL_VALUE);
 
-  const concatInput = value => {
-    setInput(input + value);
+  const replaceLastChar = (value, char) => value.slice(0, -1) + char;
+
+  const isConcatenatedOperator = value => {
+    let lastChar = input[input.length - 1];
+    return lastChar && isNaN(lastChar) && isNaN(value);
   }
 
-  const clearInput = () => {
-    setInput(INITIAL_VALUE);
+  const concatInput = value => {
+    let newInput = isConcatenatedOperator(value)
+      ? replaceLastChar(input, value)
+      : input + value;
+    setInput(newInput);
   }
+
+  const clearInput = () =>
+    setInput(INITIAL_VALUE);
 
   const calculateInput = () => {
-    setInput(evaluate(input));
+    if (input) {
+      setInput(evaluate(input));
+    }
   }
 
   return (
