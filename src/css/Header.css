@@ -1,0 +1,16 @@
+.logo-container {
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.logo-text {
+    font-size: 100px;
+    margin-left: 10px;
+}
