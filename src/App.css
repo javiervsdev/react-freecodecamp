@@ -10,27 +10,10 @@ html, body {
     font-family: Lato, sans-serif;
 }
 
-h1 {
-    color: #1b1b32;
-    font-size: 30px;
-    font-family: Roboto, sans-serif;
-    text-align: center;
-    margin: 20px 0;
-}
-
 .App {
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-}
-
-.todo-container {
-    width: 600px;
-    min-height: 500px;
-    background-color: #d0d0d5;
-    padding: 25px;
-    margin: 10px;
-    border-radius: 25px;
 }

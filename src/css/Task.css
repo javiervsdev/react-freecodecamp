@@ -26,7 +26,15 @@
     margin: 5px;
 }
 
-.task-container.completed {
-    background-color: #a6371d;
+div.task-container.completed {
+    background-color: #801d0a;
     text-decoration: line-through;
+}
+
+.task-container:nth-child(2n + 1) {
+    background-color: #3d477c;
+}
+
+.task-container:nth-child(2n + 2) {
+    background-color: #0c4f6c;
 }
